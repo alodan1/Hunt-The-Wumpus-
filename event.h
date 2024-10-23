@@ -4,7 +4,6 @@
 using namespace std;
 #include <string>
 //Event Interface
-//Note: this must be an abstract class!
 
 class Event
 {	
