@@ -15,7 +15,7 @@ using namespace std;
 
 Game::Game(){
 	//Game constructor
-	//Your code here:
+	 
 
 	
 }
@@ -45,7 +45,7 @@ void Game::set_up(int s){
 	this->num_arrows = 3; 	//start with 3 arrows
 	this->oxygen = 2*s; //start with 2*sides amount of oxygen
 	// Finish the remaining...
-	//Your code here:
+	 
 	vector <Room> r;
 	Room r1;
 	// Create the game board: 2D vector of Room objects
@@ -102,7 +102,6 @@ void Game::place_events(int num, string class_used){
     }
 }
 
-//Note: you need to modify this function
 void Game::display_game() const{
 	cout << endl << endl;
 	//print the arrows
@@ -122,26 +121,12 @@ void Game::display_game() const{
 			//The first char indicates whether there is a player in that room or not
 			//if the room does not have the player, print space " "
 
-			//else, print "*"
-
 			if (this->cave[i][j].get_has_player()) {
                 cout << "*";
             } else {
                 cout << " ";
             }
 			
-
-			//The next two chars indicate the event in the room
-			//if the room does not have an event, print "  ||" (2 spaces + ||)
-			
-			//else, 
-				//if debug_view is true
-					//print the corresponding char of the event
-				//else
-					//print " " (1 space)
-				// print " ||" (1 space + ||)
-
-			//Fix the following...
 			if (this->cave[i][j].is_not_empty()) {
                 if (this->debug_view) {
                     this->cave[i][j].get_e()->print_symbol();
@@ -172,7 +157,7 @@ void Game::display_game() const{
 
 bool Game::check_win() const{
 	//check if game over/win
-	//Your code here:
+	
 		
 	
 	if((cave[player_x][player_y].get_has_player())==false)
@@ -229,7 +214,7 @@ void Game::win_condition()
 
 void Game::move_up() {
 	//move player up
-	//Your code here:
+	 
 	// Move the player up
     if (player_x > 0) {
         // Clear current position
@@ -257,7 +242,7 @@ void Game::move_up() {
 
 void Game::move_down() {
 	//move player down
-	//Your code here:
+	
 
 	if (player_x < side-1) {
         // Clear current position
@@ -282,7 +267,7 @@ void Game::move_down() {
 
 void Game::move_left() {
 	//move player left
-	//Your code here:
+	 
 
 	    if (player_y > 0) {
         // Clear current position
@@ -308,7 +293,7 @@ void Game::move_left() {
 
 void Game::move_right() {
 	//move player right
-	//Your code here:
+	 
 
 	if (player_y < side-1) {
         // Clear current position
@@ -334,16 +319,9 @@ void Game::move_right() {
 
 void Game::wumpus_move(){
 	//after a missed arrow, 75% chance that the wumpus is moved to a different room
-
-	//How to get 75%? 
 	int move = rand()%4;
-	//Hint: generate a random number from 0-3, if the number is not 0, then move
-
-	//Your code here:
-    
     // Check if the wumpus should move (75% chance)
     if (move != 0) {
-
         for(int i=0; i<this->side; i++)
 		{
 			for(int j=0; j<this->side; j++)
@@ -358,11 +336,11 @@ void Game::wumpus_move(){
     }
 	else
 	{
-		cave[player_x][player_y].set_has_player(false); //if the player gets unluck and misses the wumpus they die
+		cave[player_x][player_y].set_has_player(false); //if the player gets unlucky and misses the wumpus they die
 		cout << "\nyou've been killed by the wumpus" << "\nGame Over!!";
 	}
-
 }
+
 void Game::diving()
 {
 	char yes_or_no;
@@ -389,7 +367,7 @@ if(num_arrows>0)
 	do{
 		dir = get_dir();
 	}while(dir != 'w' && dir != 'a' && dir != 's' && dir != 'd' && dir != 'f' ); //continue propmting until they choose a correct char value
-	//Your code here:
+	 
 	
 	//shoot in the direction they chose up to three spots
 	if(dir == 'w')
@@ -509,7 +487,6 @@ void Game::shot_right() //d
 
 
 
-//Note: you need to modify this function
 void Game::play_game(int s, bool d){
 
 	
@@ -523,7 +500,7 @@ void Game::play_game(int s, bool d){
 		Game::display_game();
 
 		//display percerts around player's location
-		//Your code here:
+		 
 
 		//Player move...
 		//1. get input
@@ -540,7 +517,7 @@ void Game::play_game(int s, bool d){
 		Game::diving(); //if the player is in the pool position make theem enter
 		Game::win_condition(); //if the gets the gold and returns to the entrance
 		Game::death();	//if the player dies
-		//Your code here:
+		 
 
 	}
 	
@@ -575,8 +552,8 @@ void Game::move(char c) {
 char Game::get_input(){
 	//get action, move direction or firing an arrow
 
-	//Note: error checking is needed!!
-	//Your code here:
+	
+	 
 	char c;
 		
 	cout << endl << endl << "Player move..." << endl << endl;
@@ -667,7 +644,7 @@ char Game::get_dir(){
 	//get direction of arrow:
 	char dir;
 
-	//Your code here:
+	 
 	cout << "Fire an arrow...." << endl;
 	cout << "W-up" << endl;
 	cout << "A-left" << endl;
